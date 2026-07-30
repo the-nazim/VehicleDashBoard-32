@@ -17,12 +17,15 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <uart_manager.h>
 #include "main.h"
+#include "vehicle.h"
+#include "diagnostics.h"
+#include "dashboard.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#include "debug.h"
 
 /* USER CODE END Includes */
 
@@ -97,8 +100,6 @@ int main(void)
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
 
-  Debug_Print("Application Starter\r\n");
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -106,6 +107,12 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+
+	  Vehicle_Update();
+	  Diagnostics_Run();
+	  Dashboard_Print();
+
+	  HAL_Delay(500);
 
     /* USER CODE BEGIN 3 */
   }
