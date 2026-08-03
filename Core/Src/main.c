@@ -106,11 +106,10 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  HAL_DELAY(500);
 	  Vehicle_Update();
 	  Diagnostics_Run();
 	  Dashboard_Print();
-	  HAL_Delay(500);
+//	  HAL_Delay(500);
 
     /* USER CODE BEGIN 3 */
   }
