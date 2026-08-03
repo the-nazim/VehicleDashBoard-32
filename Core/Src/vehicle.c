@@ -35,5 +35,10 @@ void Vehicle_Update(void)
 
     Vehicle.door=GPIO_Door();
 
+//    Vehicle.speed = 60;
+//    Vehicle.fuel = 75;
+//    Vehicle.battery = 12.5f;
+//    Vehicle.rpm = 2100;
+
     Vehicle.rpm=Vehicle.speed*35;
 }

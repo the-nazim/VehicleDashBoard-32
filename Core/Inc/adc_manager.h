@@ -11,12 +11,15 @@
 #include <uart_manager.h>
 #include "main.h"
 
-typedef enum {
-	ADC_SPEED=0,
-	ADC_FUEL,
-	ADC_BATTERY,
-	ADC_COUNT
-}ADC_Channel_t;
+typedef enum
+{
+    ADC_SPEED = 0,
+    ADC_FUEL,
+    ADC_BATTERY,
+
+    ADC_COUNT
+
+} ADC_Channel_t;
 
 void ADC_Manager_Update(void);
 
