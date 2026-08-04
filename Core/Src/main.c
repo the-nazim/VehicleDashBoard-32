@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include <stdio.h>
+#include "uart_manager.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -124,7 +125,7 @@ int main(void)
 	  {
 	      if (HAL_I2C_IsDeviceReady(&hi2c1, addr << 1, 2, 100) == HAL_OK)
 	      {
-	          printf("Found device at 0x%02X\r\n", addr);
+	          UART_Printf("Found device at 0x%02X\r\n", addr);
 	      }
 	  }
     /* USER CODE BEGIN 3 */
