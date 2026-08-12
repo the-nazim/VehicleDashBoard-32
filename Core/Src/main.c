@@ -20,6 +20,10 @@
 #include "main.h"
 #include <stdio.h>
 #include "uart_manager.h"
+#include "vehicle.h"
+#include "diagnostics.h"
+#include "dashboard.h"
+#include "ssd1306.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -113,6 +117,22 @@ int main(void)
 
   HAL_TIM_Base_Start_IT(&htim2);
 
+
+  UART_Printf("I2C initialized\r\n");
+
+  SSD1306_Init();
+
+  UART_Printf("SSD1306 initialized\r\n");
+
+  SSD1306_Fill(SSD1306_COLOR_BLACK);
+
+  SSD1306_GotoXY(0, 0);
+  SSD1306_Puts("HELLO");
+
+  SSD1306_UpdateScreen();
+
+  UART_Printf("SSD1306 update complete\r\n");
+
 //  uint32_t lastPrint = 0;
   /* USER CODE END 2 */
 
@@ -121,13 +141,11 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  for (uint8_t addr = 1; addr < 128; addr++)
-	  {
-	      if (HAL_I2C_IsDeviceReady(&hi2c1, addr << 1, 2, 100) == HAL_OK)
-	      {
-	          UART_Printf("Found device at 0x%02X\r\n", addr);
-	      }
-	  }
+	    Vehicle_Update();
+
+	    Diagnostics_Run();
+
+	    Dashboard_Print();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
