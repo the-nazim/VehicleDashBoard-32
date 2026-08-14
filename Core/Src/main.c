@@ -148,6 +148,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+	Vehicle_Update();
+
+	Diagnostics_Run();
+
+	Dashboard_Print();
   }
   /* USER CODE END 3 */
 }
