@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "fatfs.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -116,6 +117,7 @@ int main(void)
   MX_TIM2_Init();
   MX_I2C1_Init();
   MX_SPI1_Init();
+  MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
 
   HAL_TIM_Base_Start_IT(&htim2);
@@ -144,11 +146,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	    Vehicle_Update();
 
-	    Diagnostics_Run();
-
-	    Dashboard_Print();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
